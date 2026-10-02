@@ -1,11 +1,11 @@
 import React from 'react'
 import Button from './Button';
 
-function List({items}) {
+function List({items, onEdit, onDelete}) {
     return (
         <ul className="space-y-2">
-            {items.map((item, index) => (
-                <ListItem key={index} item={item} />
+            {items.map((item) => (
+                <ListItem key={item.id} item={item} onEdit={onEdit} onDelete={onDelete} />
             ))}
         </ul>
     )
@@ -14,15 +14,16 @@ function List({items}) {
 export default List
 
 
-function ListItem({item}) {
+function ListItem({item, onEdit, onDelete}) {
     const isCompleted = item.completed;
     return (
-        <li className={`flex items-center gap-3 px-3 rounded shadow hover:bg-slate-200 cursor-pointer py-2 ${isCompleted ? 'bg-green-300' : ''}`}>
+        <li className={`flex items-center gap-3 px-3 rounded shadow hover:bg-slate-200 cursor-pointer py-2 ${isCompleted ? 'bg-green-300' : 'bg-yellow-200'}`}>
             <span className="font-semibold mr-auto">{item.title}</span>
-            <Button variant={'outlineprimary'}>
+            <Button variant={'outlineprimary'} onClick={() => onEdit(item)}>
+
                 Edit
             </Button>
-            <Button variant={'outlinedanger'}>
+            <Button variant={'outlinedanger'} onClick={() => onDelete(item)}>
                 Delete
             </Button>
         </li>
