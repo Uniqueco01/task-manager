@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 
-function Toast({ messages }) {
+function Toast({ message }) {
     const [showToast, setShowToast] = useState(false);
 
     useEffect(() => {
-        if (messages.length > 0) {
+        if (message && message.text) {
             setShowToast(true);
         }
         const timeoutId = setTimeout(() => {
             setShowToast(false);
         }, 3000);
         return () => clearTimeout(timeoutId);
-    }, [messages]);
+    }, [message]);
 
     const variantClasses = {
         success: "bg-green-100 text-green-800",
@@ -29,12 +29,10 @@ function Toast({ messages }) {
     return (
         showToast && (
             <ul className="fixed w-xs right-0 top-0 p-6 flex flex-col gap-4 justify-end z-1000">
-                {messages.map((message, index) => (
-                    <li key={index} className={`p-4 rounded shadow-md flex items-center gap-2 ${variantClasses[message.type]}`}>
-                        <span>{variantIcons[message.type]}</span>
-                        <span className="ml-2">{message.text}</span>
-                    </li>
-            ))}
+                <li className={`p-4 rounded shadow-md flex items-center gap-2 ${variantClasses[message.type]}`}>
+                    <span>{variantIcons[message.type]}</span>
+                    <span className="ml-2">{message.text}</span>
+                </li>
         </ul>
         )
     )

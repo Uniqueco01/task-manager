@@ -13,7 +13,7 @@ function Task() {
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [loading, setLoading] = useState(false);
     const [modalTask, setModalTask] = useState(null);
-    const [toastMessages, setToastMessages] = useState([]);
+    const [toastMessage, setToastMessage] = useState({});
 
     const fetchTasks = async () => {
         setLoading(true);
@@ -52,7 +52,7 @@ function Task() {
         setLoading(true);
         console.log(task);
         const {message, error} = await DeleteTask(task.$id);
-        setToastMessages([...toastMessages, {type: error ? "error" : "success", text: message}]);
+        setToastMessage({type: error ? "error" : "success", text: message});
         fetchTasks();
         setLoading(false);
         setShowDeleteModal(false)
@@ -74,7 +74,7 @@ function Task() {
         }
         if (result) {
             const {message, error} = result;
-            setToastMessages([...toastMessages, {type: error ? "error" : "success", text: message}]);
+            setToastMessage({type: error ? "error" : "success", text: message});
         }
         setModalOpen(false);
         setModalTask(null);
@@ -115,7 +115,7 @@ function Task() {
                 </div>
             )}
 
-            <Toast messages={toastMessages} />
+            <Toast message={toastMessage} />
             
             <div className="mt-10 w-md mx-auto p-6 bg-white rounded-lg shadow-md">
                 <h3 className="text-xl text-center font-bold text-blue-600 mb-4">Task manager application</h3>
