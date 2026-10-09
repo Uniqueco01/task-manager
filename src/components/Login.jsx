@@ -101,7 +101,7 @@ function Login() {
                 </div>
             </div>
         )}
-        <form onSubmit={handleSubmit(onSubmit)} className=' mx-auto p-6 bg-blue-200 shadow-md mt-10  w-1/3 rounded-lg'>
+        <form onSubmit={handleSubmit(onSubmit)} className=' mx-auto p-6 bg-blue-200 shadow-md mt-10 w-11/12 max-w-md rounded-lg'>
         <h1 className=' text-center text-2xl font-bold mb-1'><span className='text-blue-600'>Welcome</span> back!</h1>
         <p className=' text-center text-sm text-gray-600 mb-4'>Log in to manage your tasks.</p>
             <div>

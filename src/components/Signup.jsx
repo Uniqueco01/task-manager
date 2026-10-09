@@ -86,7 +86,7 @@ function Signup() {
                 </div>
             </div>
         )}
-        <form onSubmit={handleSubmit(onSubmit)} noValidate className=' mx-auto p-6 bg-blue-200 shadow-md mt-10  w-1/3 rounded-lg'>
+        <form onSubmit={handleSubmit(onSubmit)} noValidate className=' mx-auto p-6 bg-blue-200 shadow-md mt-10 w-11/12 max-w-md rounded-lg'>
             <h1 className=' text-center text-2xl font-bold mb-4'>Create your account</h1>
             <div>
             <label>Username: <br />

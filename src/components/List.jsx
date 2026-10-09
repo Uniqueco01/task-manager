@@ -27,9 +27,9 @@ function ListItem({ item, onEdit, onDelete, onView }) {
             onClick={() => onView(item)}
             className={`flex items-center gap-3 px-3 rounded shadow hover:bg-slate-200 cursor-pointer py-2 ${isCompleted ? 'bg-green-300' : 'bg-yellow-200'}`}
         >
-            <span className="font-semibold mr-auto">{item.title}</span>
+            <span className="font-semibold mr-auto min-w-0 truncate">{item.title}</span>
 
-            <div className="flex gap-3" onClick={(e) => e.stopPropagation()}>
+            <div className="flex shrink-0 gap-2 sm:gap-3" onClick={(e) => e.stopPropagation()}>
                 <Button variant={'outlineprimary'} onClick={() => onEdit(item)}>
                     Edit
                 </Button>

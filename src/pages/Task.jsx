@@ -84,7 +84,7 @@ function Task() {
 
             <Toast message={toastMessage} />
 
-            <div className="mt-10 w-md mx-auto p-6 bg-white rounded-lg shadow-md">
+            <div className="mt-10 w-11/12 max-w-md mx-auto p-6 bg-white rounded-lg shadow-md">
                 <h3 className="text-xl text-center font-bold text-blue-600 mb-4">Task manager application</h3>
                 <div className="mb-4 shadow-md p-4 rounded-md">
                     <div className=" flex justify-between mb-2">
