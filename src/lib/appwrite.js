@@ -8,5 +8,6 @@ const account = new Account(client);
 const databases = new Databases(client);
 const databaseId = import.meta.env.VITE_APPWRITE_DB_ID;
 const tableId = import.meta.env.VITE_APPWRITE_TABLE_ID;
+const usersTableId = import.meta.env.VITE_APPWRITE_USERS_TABLE_ID;
 
-export { client, account, databases, databaseId, tableId };
+export { client, account, databases, databaseId, tableId, usersTableId };
